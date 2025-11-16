@@ -1,6 +1,5 @@
 package com.bookiary.booking_books.service;
 
-import com.bookiary.booking_books.dto.IdDto;
 import com.bookiary.booking_books.dto.ListBooksDto;
 import com.bookiary.booking_books.dto.NewBookDto;
 import com.bookiary.booking_books.dto.UpdateDataDto;
@@ -10,13 +9,10 @@ import com.bookiary.booking_books.model.BookPublisher;
 import com.bookiary.booking_books.model.Location;
 import com.bookiary.booking_books.repository.BookRepository;
 import jakarta.validation.ValidationException;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class BookService {
@@ -50,8 +46,8 @@ public class BookService {
         book.update(dto);
     }
 
-    public void deleteBook(IdDto dto) {
-        var book = bookRepository.findById(dto.id())
+    public void deleteBook(Long id) {
+        var book = bookRepository.findById(id)
                 .orElseThrow(() -> new ValidationException("Book id doesn't is registered."));
 
         book.updateStatus();

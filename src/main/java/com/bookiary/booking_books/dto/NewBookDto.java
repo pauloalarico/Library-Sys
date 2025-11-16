@@ -13,7 +13,7 @@ public record NewBookDto(
         @NotBlank
         @Pattern(
                 regexp = "^(?:978-?)?(?:\\d{2}-?)?\\d{4,7}-?\\d{2,6}-?\\d$",
-                message = "ISBN inválido. Formato aceito: 978-65-89999-01-3 ou 9786589999013"
+                message = "Invalide ISBN."
         )
         String isbn,
         @NotNull

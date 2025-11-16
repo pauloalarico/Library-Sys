@@ -1,20 +1,16 @@
 package com.bookiary.booking_books.controller;
 
-import com.bookiary.booking_books.dto.IdDto;
 import com.bookiary.booking_books.dto.ListBooksDto;
 import com.bookiary.booking_books.dto.NewBookDto;
 import com.bookiary.booking_books.dto.UpdateDataDto;
 import com.bookiary.booking_books.service.BookService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/book")
@@ -37,8 +33,9 @@ public class BookController {
         bookService.updateData(dto);
     }
 
-    @PostMapping("/inactivate")
-    public void deleteBook(@RequestBody @Valid IdDto dto) {
-        bookService.deleteBook(dto);
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void deleteBook(@PathVariable Long id) {
+        bookService.deleteBook(id);
     }
 }

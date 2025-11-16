@@ -9,4 +9,5 @@ public record BookPublisherDto(
         @NotNull
         Integer foundationYear
 ) {
+
 }
