@@ -57,12 +57,12 @@ public class Book {
             this.quantityAvaible = dto.avaibleQuantity();
         }
 
-        if(dto.bookPublisherDto() != null) {
-            this.bookPublisher.update(dto.bookPublisherDto());
+        if(dto.bookPublisher() != null) {
+            this.bookPublisher.update(dto.bookPublisher());
         }
 
-        if(dto.locationDto() != null) {
-            this.location.update(dto.locationDto());
+        if(dto.location() != null) {
+            this.location.update(dto.location());
         }
 
     }

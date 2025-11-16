@@ -6,7 +6,7 @@ public record UpdateDataDto(
         @NotNull
         Long id,
         Integer avaibleQuantity,
-        LocationDto locationDto,
-        BookPublisherDto bookPublisherDto
+        LocationDto location,
+        BookPublisherDto bookPublisher
         ) {
 }

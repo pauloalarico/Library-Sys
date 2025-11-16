@@ -29,6 +29,7 @@ public class BookController {
     }
 
     @PatchMapping("/update")
+    @Transactional
     public void updateBook(@RequestBody @Valid UpdateDataDto dto) {
         bookService.updateData(dto);
     }
