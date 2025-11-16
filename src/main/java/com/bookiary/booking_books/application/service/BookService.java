@@ -1,13 +1,13 @@
-package com.bookiary.booking_books.service;
+package com.bookiary.booking_books.application.service;
 
-import com.bookiary.booking_books.dto.ListBooksDto;
-import com.bookiary.booking_books.dto.NewBookDto;
-import com.bookiary.booking_books.dto.UpdateDataDto;
-import com.bookiary.booking_books.model.Author;
-import com.bookiary.booking_books.model.Book;
-import com.bookiary.booking_books.model.BookPublisher;
-import com.bookiary.booking_books.model.Location;
-import com.bookiary.booking_books.repository.BookRepository;
+import com.bookiary.booking_books.application.dto.ListBooksDto;
+import com.bookiary.booking_books.application.dto.NewBookDto;
+import com.bookiary.booking_books.application.dto.UpdateDataDto;
+import com.bookiary.booking_books.domain.model.Author;
+import com.bookiary.booking_books.domain.model.Book;
+import com.bookiary.booking_books.domain.model.BookPublisher;
+import com.bookiary.booking_books.domain.model.Location;
+import com.bookiary.booking_books.infrastructure.repository.BookRepository;
 import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

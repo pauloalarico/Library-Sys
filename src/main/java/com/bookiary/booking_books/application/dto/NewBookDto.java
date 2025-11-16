@@ -1,7 +1,6 @@
-package com.bookiary.booking_books.dto;
+package com.bookiary.booking_books.application.dto;
 
-import com.bookiary.booking_books.enums.Category;
-import jakarta.persistence.Enumerated;
+import com.bookiary.booking_books.domain.enums.Category;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

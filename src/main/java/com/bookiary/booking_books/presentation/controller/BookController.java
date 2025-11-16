@@ -1,9 +1,9 @@
-package com.bookiary.booking_books.controller;
+package com.bookiary.booking_books.presentation.controller;
 
-import com.bookiary.booking_books.dto.ListBooksDto;
-import com.bookiary.booking_books.dto.NewBookDto;
-import com.bookiary.booking_books.dto.UpdateDataDto;
-import com.bookiary.booking_books.service.BookService;
+import com.bookiary.booking_books.application.dto.ListBooksDto;
+import com.bookiary.booking_books.application.dto.NewBookDto;
+import com.bookiary.booking_books.application.dto.UpdateDataDto;
+import com.bookiary.booking_books.application.service.BookService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

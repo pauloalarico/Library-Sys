@@ -1,8 +1,8 @@
-package com.bookiary.booking_books.service;
+package com.bookiary.booking_books.application.service;
 
-import com.bookiary.booking_books.dto.AuthorDto;
-import com.bookiary.booking_books.model.Author;
-import com.bookiary.booking_books.repository.AuthorRepository;
+import com.bookiary.booking_books.application.dto.AuthorDto;
+import com.bookiary.booking_books.domain.model.Author;
+import com.bookiary.booking_books.infrastructure.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

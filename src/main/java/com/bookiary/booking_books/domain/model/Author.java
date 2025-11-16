@@ -1,14 +1,10 @@
-package com.bookiary.booking_books.model;
+package com.bookiary.booking_books.domain.model;
 
-import com.bookiary.booking_books.dto.AuthorDto;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.cache.interceptor.CacheAspectSupport;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

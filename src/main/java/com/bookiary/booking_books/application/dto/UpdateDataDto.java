@@ -1,4 +1,4 @@
-package com.bookiary.booking_books.dto;
+package com.bookiary.booking_books.application.dto;
 
 import jakarta.validation.constraints.NotNull;
 

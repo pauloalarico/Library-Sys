@@ -1,6 +1,6 @@
-package com.bookiary.booking_books.repository;
+package com.bookiary.booking_books.infrastructure.repository;
 
-import com.bookiary.booking_books.model.Author;
+import com.bookiary.booking_books.domain.model.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;

@@ -1,7 +1,7 @@
-package com.bookiary.booking_books.service;
+package com.bookiary.booking_books.application.service;
 
-import com.bookiary.booking_books.dto.LocationDto;
-import com.bookiary.booking_books.model.Location;
+import com.bookiary.booking_books.application.dto.LocationDto;
+import com.bookiary.booking_books.domain.model.Location;
 import org.springframework.stereotype.Service;
 
 @Service

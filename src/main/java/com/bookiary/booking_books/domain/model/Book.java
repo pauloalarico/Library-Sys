@@ -1,7 +1,7 @@
-package com.bookiary.booking_books.model;
+package com.bookiary.booking_books.domain.model;
 
-import com.bookiary.booking_books.dto.UpdateDataDto;
-import com.bookiary.booking_books.enums.Category;
+import com.bookiary.booking_books.application.dto.UpdateDataDto;
+import com.bookiary.booking_books.domain.enums.Category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

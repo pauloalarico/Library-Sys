@@ -1,6 +1,6 @@
-package com.bookiary.booking_books.model;
+package com.bookiary.booking_books.domain.model;
 
-import com.bookiary.booking_books.dto.BookPublisherDto;
+import com.bookiary.booking_books.application.dto.BookPublisherDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

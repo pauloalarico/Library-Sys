@@ -1,7 +1,7 @@
-package com.bookiary.booking_books.dto;
+package com.bookiary.booking_books.application.dto;
 
-import com.bookiary.booking_books.enums.Category;
-import com.bookiary.booking_books.model.Book;
+import com.bookiary.booking_books.domain.enums.Category;
+import com.bookiary.booking_books.domain.model.Book;
 
 public record ListBooksDto(
         String title,
