@@ -1,8 +1,8 @@
 package com.bookiary.booking_books.application.service;
 
-import com.bookiary.booking_books.application.dto.ListBooksDto;
-import com.bookiary.booking_books.application.dto.NewBookDto;
-import com.bookiary.booking_books.application.dto.UpdateDataDto;
+import com.bookiary.booking_books.application.dto.request.ListBooksDto;
+import com.bookiary.booking_books.application.dto.request.NewBookDto;
+import com.bookiary.booking_books.application.dto.request.UpdateDataDto;
 import com.bookiary.booking_books.domain.model.Author;
 import com.bookiary.booking_books.domain.model.Book;
 import com.bookiary.booking_books.domain.model.BookPublisher;
@@ -25,7 +25,7 @@ public class BookService {
     @Autowired
     private LocationService locationService;
 
-    public void newBook(NewBookDto dto) {
+    public Book newBook(NewBookDto dto) {
         Author author = authorService.createAuthor(dto.authorDto());
         BookPublisher bookPublisher = bookPublisherService.createBookPublisher(dto.bookPublisherDto());
         Location location = locationService.createLocation(dto.locationDto());
@@ -33,7 +33,7 @@ public class BookService {
                 dto.title(), dto.isbn(), author,
                 bookPublisher, dto.publicationYear(), dto.category(),
                 dto.quantityAvaible(), location);
-        bookRepository.save(book);
+        return bookRepository.save(book);
     }
 
     public Page<ListBooksDto> getBooks(Pageable pageable) {

@@ -1,4 +1,4 @@
-package com.bookiary.booking_books.application.dto;
+package com.bookiary.booking_books.application.dto.request;
 
 import com.bookiary.booking_books.domain.enums.Category;
 import com.bookiary.booking_books.domain.model.Book;

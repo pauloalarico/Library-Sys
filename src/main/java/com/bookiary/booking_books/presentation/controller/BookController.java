@@ -1,8 +1,9 @@
 package com.bookiary.booking_books.presentation.controller;
 
-import com.bookiary.booking_books.application.dto.ListBooksDto;
-import com.bookiary.booking_books.application.dto.NewBookDto;
-import com.bookiary.booking_books.application.dto.UpdateDataDto;
+import com.bookiary.booking_books.application.dto.request.ListBooksDto;
+import com.bookiary.booking_books.application.dto.request.NewBookDto;
+import com.bookiary.booking_books.application.dto.request.UpdateDataDto;
+import com.bookiary.booking_books.application.dto.response.DataBookDto;
 import com.bookiary.booking_books.application.service.BookService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,8 +21,9 @@ public class BookController {
     private BookService bookService;
 
     @PostMapping("/new")
-    public void newBook (@RequestBody @Valid NewBookDto dto) {
-        bookService.newBook(dto);
+    public ResponseEntity<DataBookDto> newBook (@RequestBody @Valid NewBookDto dto) {
+        var book = bookService.newBook(dto);
+        return ResponseEntity.accepted().body(new DataBookDto(book));
     }
 
     @GetMapping("/list")

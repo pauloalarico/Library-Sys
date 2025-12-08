@@ -1,6 +1,6 @@
 package com.bookiary.booking_books.application.service;
 
-import com.bookiary.booking_books.application.dto.BookPublisherDto;
+import com.bookiary.booking_books.application.dto.request.BookPublisherDto;
 import com.bookiary.booking_books.domain.model.BookPublisher;
 import com.bookiary.booking_books.infrastructure.repository.BookPublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;

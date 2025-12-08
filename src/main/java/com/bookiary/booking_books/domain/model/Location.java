@@ -1,6 +1,6 @@
 package com.bookiary.booking_books.domain.model;
 
-import com.bookiary.booking_books.application.dto.LocationDto;
+import com.bookiary.booking_books.application.dto.request.LocationDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
