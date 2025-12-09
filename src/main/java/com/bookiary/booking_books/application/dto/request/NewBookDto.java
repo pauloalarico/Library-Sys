@@ -12,7 +12,7 @@ public record NewBookDto(
         @NotBlank
         @Pattern(
                 regexp = "^(?:978-?)?(?:\\d{2}-?)?\\d{4,7}-?\\d{2,6}-?\\d$",
-                message = "Invalide ISBN."
+                message = "Invalid ISBN."
         )
         String isbn,
         @NotNull
@@ -28,6 +28,7 @@ public record NewBookDto(
         @NotNull
         Integer quantityAvaible,
         @NotNull
+        @Valid
         LocationDto locationDto
 ) {
 }
