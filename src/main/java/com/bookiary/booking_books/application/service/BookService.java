@@ -40,10 +40,11 @@ public class BookService {
         return bookRepository.findAll(pageable).map(ListBooksDto::new);
     }
 
-    public void updateData(UpdateDataDto dto) {
+    public Book updateData(UpdateDataDto dto) {
         var book = bookRepository.findById(dto.id())
                 .orElseThrow(() -> new ValidationException("Book id doesn't is registered."));
         book.update(dto);
+        return book;
     }
 
     public void deleteBook(Long id) {

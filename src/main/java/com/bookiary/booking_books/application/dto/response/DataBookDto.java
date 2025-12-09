@@ -9,7 +9,7 @@ import com.bookiary.booking_books.domain.model.Location;
 public record DataBookDto(
         String title,
         String isbn,
-        Author author,
+        LimitedDataAuthorDto author,
         BookPublisher bookPublisher,
         Integer publicationYear,
         Category category,
@@ -19,7 +19,9 @@ public record DataBookDto(
     public DataBookDto(Book book) {
         this(book.getTitle(),
                 book.getIsbn(),
-                book.getAuthor(),
+                new LimitedDataAuthorDto(book.getAuthor().getName(),
+                        book.getAuthor().getBirthDate(),
+                        book.getAuthor().getNationality()),
                 book.getBookPublisher(),
                 book.getPublicationYear(),
                 book.getCategory(),

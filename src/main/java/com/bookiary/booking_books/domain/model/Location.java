@@ -11,8 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class Location {
+    @Column(nullable = false)
     private String section;
+    @Column(nullable = false)
     private String bookShelf;
+    @Column(nullable = false)
     private String shelf;
 
     public Location(LocationDto locationDto) {

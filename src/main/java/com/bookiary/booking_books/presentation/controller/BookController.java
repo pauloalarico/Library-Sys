@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/book")
@@ -21,20 +22,24 @@ public class BookController {
     private BookService bookService;
 
     @PostMapping("/new")
-    public ResponseEntity<DataBookDto> newBook (@RequestBody @Valid NewBookDto dto) {
+    public ResponseEntity<DataBookDto> newBook (@RequestBody @Valid NewBookDto dto,
+                                                UriComponentsBuilder uriComponentsBuilder) {
         var book = bookService.newBook(dto);
-        return ResponseEntity.accepted().body(new DataBookDto(book));
+        var uri = uriComponentsBuilder.path("/book/{id}").buildAndExpand(book.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DataBookDto(book));
     }
 
     @GetMapping("/list")
-    public Page<ListBooksDto> getBooks(@PageableDefault(size = 10, sort = {"title"})Pageable pageable) {
-        return bookService.getBooks(pageable);
+    public ResponseEntity<Page<ListBooksDto>> getBooks(@PageableDefault(size = 10, sort = {"title"})Pageable pageable) {
+        var page = bookService.getBooks(pageable);
+        return ResponseEntity.ok(page);
     }
 
     @PatchMapping("/update")
     @Transactional
-    public void updateBook(@RequestBody @Valid UpdateDataDto dto) {
-        bookService.updateData(dto);
+    public ResponseEntity<DataBookDto> updateBook(@RequestBody @Valid UpdateDataDto dto) {
+        var book = bookService.updateData(dto);
+        return ResponseEntity.ok(new DataBookDto(book));
     }
 
     @DeleteMapping("/{id}")
