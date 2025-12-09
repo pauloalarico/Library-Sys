@@ -44,7 +44,8 @@ public class BookController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void deleteBook(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
+        return ResponseEntity.noContent().build();
     }
 }
