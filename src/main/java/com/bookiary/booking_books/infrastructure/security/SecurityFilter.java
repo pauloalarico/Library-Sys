@@ -20,7 +20,7 @@ public class SecurityFilter extends OncePerRequestFilter  {
     private String tokenRecovery(HttpServletRequest request) {
         var header = request.getHeader("Authorization");
         if (header.contentEquals(header)) {
-            throw new RuntimeException("Token invalid!");
+            throw new RuntimeException("Invalid token, or expired!");
         }
         return header.replace("Bearer: ", "");
     }
