@@ -9,7 +9,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.antlr.v4.runtime.Token;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.context.SecurityContextHolderFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -25,17 +27,20 @@ public class SecurityFilter extends OncePerRequestFilter  {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var token = tokenRecovery(request);
-        var validate = tokenService.validate(token);
-        var user = userRepository.findByUsername(validate);
-        var authentication =  new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+        if (token != null) {
+            var validate = tokenService.validate(token);
+            var user = userRepository.findByUsername(validate);
+            var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+        }
         filterChain.doFilter(request,response);
     }
 
     private String tokenRecovery(HttpServletRequest request) {
         var header = request.getHeader("Authorization");
-        if (header == null) {
-            throw new RuntimeException("Invalid token, or expired!");
+        if (header != null) {
+            return header.replace("Bearer ", "");
         }
-        return header.replace("Bearer: ", "");
+        return null;
     }
 }

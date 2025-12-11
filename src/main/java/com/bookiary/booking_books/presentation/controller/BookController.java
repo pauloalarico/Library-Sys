@@ -22,7 +22,7 @@ public class BookController {
     private BookService bookService;
 
     @PostMapping("/new")
-    public ResponseEntity<DataBookDto> newBook (@RequestBody @Valid NewBookDto dto,
+    public ResponseEntity<DataBookDto> newBook (@RequestBody @Valid         NewBookDto dto,
                                                 UriComponentsBuilder uriComponentsBuilder) {
         var book = bookService.newBook(dto);
         var uri = uriComponentsBuilder.path("/book/{id}").buildAndExpand(book.getId()).toUri();
